@@ -1,0 +1,92 @@
+https://www.kaggle.com/pmarcelino/comprehensive-data-exploration-with-python
+https://www.kaggle.com/kanncaa1/data-sciencetutorial-for-beginners
+
+####Python basic function
+
+# zip example
+list1 = [1,2,3,4]
+list2 = [5,6,7,8]
+z = zip(list1,list2)
+
+# Firstly lets create 2 data frame
+data1 = data.head()
+data2= data.tail()
+conc_data_row = pd.concat([data1,data2],axis =0,ignore_index =True) # axis = 0 : adds dataframes in row
+conc_data_row
+
+data1 = data['Attack'].head()
+data2= data['Defense'].head()
+conc_data_col = pd.concat([data1,data2],axis =1) # axis = 0 : adds dataframes in row
+conc_data_col
+
+
+# Example of list comprehension
+num1 = [1,2,3]
+num2 = [i + 1 for i in num1 ]
+print(num2)
+
+# Conditionals on iterable
+num1 = [5,10,15]
+num2 = [i**2 if i == 10 else i-5 if i < 7 else i+5 for i in num1]
+print(num2)
+
+#pivot data & tiny data
+http://shzhangji.com/cnblogs/2017/09/30/pandas-and-tidy-data/
+
+####Data correlation
+
+data.corr()
+
+#correlation map
+f,ax = plt.subplots(figsize=(18, 18))
+sns.heatmap(data.corr(), annot=True, linewidths=.5, fmt= '.1f',ax=ax)
+plt.show()
+
+# Line Plot
+# color = color, label = label, linewidth = width of line, alpha = opacity, grid = grid, linestyle = sytle of line
+data.Speed.plot(kind = 'line', color = 'g',label = 'Speed',linewidth=1,alpha = 0.5,grid = True,linestyle = ':')
+data.Defense.plot(color = 'r',label = 'Defense',linewidth=1, alpha = 0.5,grid = True,linestyle = '-.')
+plt.legend(loc='upper right')     # legend = puts label into plot
+plt.xlabel('x axis')              # label = name of label
+plt.ylabel('y axis')
+plt.title('Line Plot')            # title = title of plot
+plt.show()
+
+# Scatter Plot 
+# x = attack, y = defense
+data.plot(kind='scatter', x='Attack', y='Defense',alpha = 0.5,color = 'red')
+plt.xlabel('Attack')              # label = name of label
+plt.ylabel('Defence')
+plt.title('Attack Defense Scatter Plot')            # title = title of plot
+
+# Histogram
+# bins = number of bar in figure
+data.Speed.plot(kind = 'hist',bins = 50,figsize = (12,12))
+plt.show()
+
+
+
+
+def f(*args):
+    for i in args:
+        print(i)
+f(1)
+print("")
+f(1,2,3,4)
+# flexible arguments **kwargs that is dictionary
+def f(**kwargs):
+    """ print key and value of dictionary"""
+    for key, value in kwargs.items():               # If you do not understand this part turn for loop part and look at dictionary in for loop
+        print(key, " ", value)
+f(country = 'spain', capital = 'madrid', population = 123456)
+
+# lambda function
+square = lambda x: x**2     # where x is name of argument
+print(square(4))
+tot = lambda x,y,z: x+y+z   # where x,y,z are names of arguments
+print(tot(1,2,3))
+
+tidy data
+
+HIERARCHICAL INDEXING
+Setting indexing
